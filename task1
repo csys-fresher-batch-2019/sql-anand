@@ -18,4 +18,4 @@ constraint emp_id_fk foreign key references employee (emp_id),
 constraint status_ck check (status in('','PROCESSING','COMPLETED'))
 );
 
-alter table tasks add (created_date date not null, last_modified timestamp not null DEFAULT SYSTIMESTAMP);
+alter table tasks add (created_date date not null, last_modified timestamp DEFAULT SYSTIMESTAMP);
