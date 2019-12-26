@@ -1,0 +1,17 @@
+create table tasks
+(  
+task_id number,  
+task_name varchar2(20) not null,  
+emp_id number,  
+deadline_date date not null,  
+completed_date date,  
+status varchar2(10),  
+task_priority number not null,  
+constraint priority_no check (task_priority in( 1,2,3)) , 
+constraint task_id_pk primary key( task_id),  
+constraint emp_id_fk foreign key(emp_id) references employee (emp_id),  
+constraint status_ck check (status in('','PROCESSING','COMPLETED'))  
+);
+
+
+select emp_name,status,count(*) from tasks group by emp_name,status order by emp_name,status;
