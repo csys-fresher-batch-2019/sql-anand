@@ -8,12 +8,14 @@ create table tasks(
 task_id number,
 task_name varchar2(20) not null,
 emp_id number,
-emp_name varchar2(20),
 deadline_date date not null,
 completed_date date,
-status varchar2(10)
+status varchar2(10),
+priority number not null,
+constraint priority_no check (priority in('1','2','3'))
 constraint task_id_pk primary key task_id,
 constraint emp_id_fk foreign key references employee (emp_id),
-constraint emp_name_fk foreign key references employee (emp_name)
 constraint status_ck check (status in('','PROCESSING','COMPLETED'))
 );
+
+alter table tasks add (created_date date not null, last_modified timestamp not null DEFAULT SYSTIMESTAMP);
