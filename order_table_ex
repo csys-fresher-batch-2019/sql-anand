@@ -9,7 +9,7 @@ edition number,
 category varchar2(20) not null,
 status number default 1,
 constraint book_id_pk primary key (book_id),
-constraint price_check check price>=1,
+constraint price_check check (price>=1),
 constraint status_check check (status in('1','0')),
 constraint combined unique(book_id,book_name,edition)
 );
@@ -26,9 +26,13 @@ total number,
 status varchar2(20) default 'ordered',
 comments varchar2(20),
 constraint order_id_pk primary key (order_id),
-constraint qty_check check quantity>=1,
-constraint total_check check total>=1,
+constraint qty_check check (quantity>=1),
+constraint total_check check (total>=1),
 constraint book_id_fk foreign key (book_id) references book(book_id),
 constraint status_check check (status in('ordered','delivered','shipping','cancelled','not available')),
 constraint combined unique(customer_id,book_id,order_date)
 );
+
+--update during delivery (not available)
+
+update order set status= 'not available' AND comments='not available at SYSTIMESTAMP' where order_id=?;
