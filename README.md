@@ -18,7 +18,7 @@ create table department
 (
 dept_id number,
 dept_name varchar2(20),
-dept_status number DEFAULT 1,
+dept_active number DEFAULT 1,
 constraint dept_id_pk primary key (dept_id),
 constraint dept_name_uq unique (dept_name),
 constraint dept_status_ck check (dept_status in (1,0))
@@ -29,7 +29,7 @@ create table degree
 deg_id number,
 deg_name varchar2(10),
 no_of_yr number,
-deg_status number DEFAULT 1,
+deg_active number DEFAULT 1,
 constraint deg_id_pk primary key (deg_id),
 constraint deg_name_uq unique (deg_name),
 constraint no_of_yr_ck check (no_of_yr in(1,2,3,4)),
@@ -42,7 +42,7 @@ create table course
 course_id number,
 deg_id number,
 dept_id number,
-course_status number DEFAULT 1,
+course_active number DEFAULT 1,
 constraint course_id_pk primary key (course_id),
 constraint deg_id_fk foreign key (deg_id) references degree (deg_id),
 constraint dept_id_fk foreign key (dept_id) references department(dept_id),
