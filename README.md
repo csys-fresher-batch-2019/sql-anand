@@ -53,7 +53,7 @@ constraint course_status_ck check (course_status in(1,0))
 
 ### Feature 2 : ADD SEMESTER
 
-To add semester to the built system so as to differentiate between semester of payment made.
+To add semester to the built system so as to differentiate between semesters of payment.
 
 #### Query:
 
