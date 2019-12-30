@@ -10,7 +10,7 @@
 
 To add departments, degrees preceeding to signify courses run by the institution.
 
-Query:
+#### Query:
 
 create table department
 (
