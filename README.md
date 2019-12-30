@@ -12,6 +12,8 @@ To add departments, degrees preceeding to signify courses run by the institution
 
 #### Query:
 
+~~~ sql
+
 create table department
 (
 dept_id number,
@@ -47,11 +49,15 @@ constraint course_comb_uk unique (deg_id,dept_id),
 constraint course_status_ck check (course_status in(1,0))
 );
 
+~~~ sql
+
 ### Feature 2 : ADD SEMESTER
 
 To add semester to the built system so as to differentiate between semester of payment made.
 
 #### Query:
+
+~~~ sql
 
 create table semester
 (
@@ -63,4 +69,4 @@ constraint sem_type_ck check (sem_type in('ODD','EVEN')),
 constraint sem_comb unique (sem_type,acc_yr_begin)
 );
 
-
+~~~ sql
