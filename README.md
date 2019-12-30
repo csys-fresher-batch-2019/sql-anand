@@ -2,7 +2,7 @@
 
 ## Overview
  
-  This system manages the fee paid by the students and this authenticates for the efficient processing over auditing by authorities at end the end of each academic year.
+  This system manages the fee paid by the students and this authenticates for the efficient processing over auditing by authorities at the end of each academic year.
 
 ## Features
 
