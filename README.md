@@ -21,7 +21,7 @@ dept_name varchar2(20),
 dept_active number DEFAULT 1,
 constraint dept_id_pk primary key (dept_id),
 constraint dept_name_uq unique (dept_name),
-constraint dept_status_ck check (dept_status in (1,0))
+constraint dept_status_ck check (dept_active in (1,0))
 );
 
 create table degree
@@ -33,7 +33,7 @@ deg_active number DEFAULT 1,
 constraint deg_id_pk primary key (deg_id),
 constraint deg_name_uq unique (deg_name),
 constraint no_of_yr_ck check (no_of_yr in(1,2,3,4)),
-constraint deg_status_ck check (deg_status in (1,0)),
+constraint deg_status_ck check (deg_active in(1,0)),
 constraint deg_combine_uq unique(deg_name,no_of_yr)
 );
 
@@ -47,7 +47,7 @@ constraint course_id_pk primary key (course_id),
 constraint deg_id_fk foreign key (deg_id) references degree (deg_id),
 constraint dept_id_fk foreign key (dept_id) references department(dept_id),
 constraint course_comb_uk unique (deg_id,dept_id),
-constraint course_status_ck check (course_status in(1,0))
+constraint course_status_ck check (course_active in(1,0))
 );
 
 ``` 
@@ -59,6 +59,7 @@ To add semester to the built system so as to differentiate between semesters of 
 #### Query:
 
 ```sql
+
 create table semester
 (
 sem_id number,
