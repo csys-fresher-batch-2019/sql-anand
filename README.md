@@ -62,10 +62,10 @@ To add semester to the built system so as to differentiate between semesters of 
 create table semester
 (
 sem_id number,
-sem_type varchar2(5),
+sem_type number,
 acc_yr_begin number not null,
 constraint sem_id_pk primary key (sem_id),
-constraint sem_type_ck check (sem_type in('ODD','EVEN')),
+constraint sem_type_ck check (sem_type in(0,1)),
 constraint sem_comb unique (sem_type,acc_yr_begin)
 );
 
