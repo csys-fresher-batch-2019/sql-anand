@@ -28,10 +28,11 @@ create table degree
 (
 deg_id number,
 deg_name varchar2(10),
-no_of_sem number,
+no_of_yr number,
 deg_status number DEFAULT 1,
 constraint deg_id_pk primary key (deg_id),
 constraint deg_name_uq unique (deg_name),
+constraint no_of_yr_ck check (no_of_yr in(1,2,3)),
 constraint deg_status_ck check (deg_status in (1,0)),
 constraint deg_combine_uq unique(deg_name,no_of_sem)
 );
@@ -62,7 +63,7 @@ create table semester
 (
 sem_id number,
 sem_type varchar2(5),
-acc_yr_begin number,
+acc_yr_begin number not null,
 constraint sem_id_pk primary key (sem_id),
 constraint sem_type_ck check (sem_type in('ODD','EVEN')),
 constraint sem_comb unique (sem_type,acc_yr_begin)
