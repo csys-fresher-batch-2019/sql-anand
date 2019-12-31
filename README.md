@@ -80,7 +80,7 @@ constraint course_active_ck check (course_active in(1,0))
 | 4         | 3      | 1       | 1             |
 
 
-### Feature 2 : ADD SEMESTER
+### Feature 2 : ADD SEMESTER and STUDENT
 
 To add semester to the built system so as to differentiate between semesters of payment.
 
@@ -106,3 +106,64 @@ constraint sem_comb unique (sem_type,acc_yr_begin)
 | 2      | 1        | 2019         |
 | 3      | 0        | 2020         |
 | 4      | 1        | 2020         |
+
+
+create table student
+(
+std_id varchar2(8),
+std_name varchar2(30) NOT NULL,
+course_id number,
+stud_active number DEFAULT 1,
+constraint std_id_pk primary key (std_id),
+constraint course_id_stud_fk foreign key (course_id) references course(course_id),
+constraint stud_active_ck check (stud_active in(1,0))
+);
+
+
+### Feature 3: ADD FEE CATEGORY AND ASSIGN FEE TO EACH CATEGORY
+
+#### Query:
+
+```
+
+create table fee_category
+( 
+fee_category_id number, 
+fee_category_name varchar2(100) not null,
+constraint fee_category_id_pk primary key (fee_category_id),
+constraint fee_category_name_uq unique (fee_category_name)
+);
+
+create table course_fee 
+(
+course_fee_id number , 
+course_id number, 
+fee_category_id number, 
+amount number not null,
+constraint course_fee_id_pk primary key (course_fee_id),
+constraint course_id_fee_fk foreign key(course_id) references course(course_id),
+constraint fee_category_id_fk foreign key(fee_category_id) references fee_category(fee_category_id),
+constraint amount_ck check (amount > 0)
+);
+
+```
+### Feature 4: MAKE ENTRY FOR PAYMENT THAT HAS BEEN MADE
+
+#### Query:
+
+create table payment
+( 
+payment_id number, 
+payment_date date not null,
+std_id number, 
+course_fee_id number, 
+paid_amount  number,
+constraint payment_id_pk primary key (payment_id),
+constraint std_id_fk foreign key (std_id) references student(std_id),
+constraint course_fee_id_payment_fk foreign key (course_fee_id) references course_fee(course_fee_id),
+constraint payment_date_ck check (payment_date>=SYSDATE),
+constraint paid_amount_ck check(paid_amount>0)
+);
+
+
+
