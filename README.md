@@ -24,6 +24,16 @@ constraint dept_name_uq unique (dept_name),
 constraint dept_status_ck check (dept_active in (1,0))
 );
 
+````
+
+| dept_id | dept_name | dept_active |
+|---------|-----------|-------------|
+| 1       | english   | 1           |
+| 2       | tamil     | 1           |
+| 3       | maths     | 1           |
+
+```
+
 create table degree
 (
 deg_id number,
@@ -36,6 +46,17 @@ constraint no_of_yr_ck check (no_of_yr in(1,2,3,4)),
 constraint deg_status_ck check (deg_active in(1,0)),
 constraint deg_combine_uq unique(deg_name,no_of_yr)
 );
+
+```
+
+| deg_id | deg_name | deg_active |
+|--------|----------|------------|
+| 1      | BA       | 1          |
+| 2      | Bsc      | 1          |
+| 3      | MA       | 1          |
+
+
+```
 
 create table course
 (
@@ -51,6 +72,13 @@ constraint course_status_ck check (course_active in(1,0))
 );
 
 ``` 
+| course_id | deg_id | dept_id | course_active |
+|-----------|--------|---------|---------------|
+| 1         | 1      | 1       | 1             |
+| 2         | 1      | 2       | 1             |
+| 3         | 2      | 3       | 1             |
+| 4         | 3      | 1       | 1             |
+
 
 ### Feature 2 : ADD SEMESTER
 
