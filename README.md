@@ -107,6 +107,7 @@ constraint sem_comb unique (sem_type,acc_yr_begin)
 | 3      | 0        | 2020         |
 | 4      | 1        | 2020         |
 
+```
 
 create table student
 (
@@ -119,6 +120,7 @@ constraint course_id_stud_fk foreign key (course_id) references course(course_id
 constraint stud_active_ck check (stud_active in(1,0))
 );
 
+```
 
 ### Feature 3: ADD FEE CATEGORY AND ASSIGN FEE TO EACH CATEGORY
 
@@ -151,6 +153,8 @@ constraint amount_ck check (amount > 0)
 
 #### Query:
 
+```
+
 create table payment
 ( 
 payment_id number, 
@@ -165,5 +169,5 @@ constraint payment_date_ck check (payment_date>=SYSDATE),
 constraint paid_amount_ck check(paid_amount>0)
 );
 
-
+```
 
