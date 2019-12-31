@@ -124,6 +124,8 @@ constraint stud_active_ck check (stud_active in(1,0))
 
 ### Feature 3: ADD FEE CATEGORY AND ASSIGN FEE TO EACH CATEGORY
 
+To add fee categories and assign values to each category for each course
+
 #### Query:
 
 ```
@@ -151,6 +153,8 @@ constraint amount_ck check (amount > 0)
 ```
 ### Feature 4: MAKE ENTRY FOR PAYMENT THAT HAS BEEN MADE
 
+To make entries for the fees paid by the students
+
 #### Query:
 
 ```
@@ -160,12 +164,14 @@ create table payment
 payment_id number, 
 payment_date date not null,
 std_id number, 
+sem_id number,
 course_fee_id number, 
 paid_amount  number,
 constraint payment_id_pk primary key (payment_id),
-constraint std_id_fk foreign key (std_id) references student(std_id),
-constraint course_fee_id_payment_fk foreign key (course_fee_id) references course_fee(course_fee_id),
 constraint payment_date_ck check (payment_date>=SYSDATE),
+constraint std_id_fk foreign key (std_id) references student(std_id),
+constraint sem_id_payment_fk foreign key (sem_id) references semester(sem_id),
+constraint course_fee_id_payment_fk foreign key (course_fee_id) references course_fee(course_fee_id),
 constraint paid_amount_ck check(paid_amount>0)
 );
 
