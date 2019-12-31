@@ -99,3 +99,10 @@ constraint sem_comb unique (sem_type,acc_yr_begin)
 );
 
 ```
+
+| sem_id | sem_type | acc_yr_begin |
+|--------|----------|--------------|
+| 1      | 0        | 2019         |
+| 2      | 1        | 2019         |
+| 3      | 0        | 2020         |
+| 4      | 1        | 2020         |
