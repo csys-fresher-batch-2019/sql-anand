@@ -174,6 +174,16 @@ constraint amount_ck check (amount > 0)
 );
 
 ```
+
+ course_fee_id  | course_id | fee_category_id | amount |
+|---------------|-----------|-----------------|--------|
+| 1             | 1         | 1               | 500    |
+| 2             | 4         | 3               | 600    |
+| 3             | 4         | 2               | 200    |
+| 4             | 2         | 4               | 300    |
+| 5             | 3         | 2               | 10000  |
+
+
 ### Feature 4: MAKE ENTRY FOR PAYMENT THAT HAS BEEN MADE
 
 To make entries for the fees paid by the students
