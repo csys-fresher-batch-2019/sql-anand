@@ -42,7 +42,8 @@ no_of_yr number,
 deg_active number DEFAULT 1,
 constraint deg_id_pk primary key (deg_id),
 constraint deg_name_uq unique (deg_name),
-constraint no_of_yr_ck check (no_of_yr<=4)),
+constraint no_of_yr_ck1 check (no_of_yr<=4)),
+constraint no_of_yr_ck2 check (no_of_yr>=1)),
 constraint deg_active_ck check (deg_active in(1,0)),
 constraint deg_combine_uq unique(deg_name,no_of_yr)
 );
