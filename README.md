@@ -149,6 +149,18 @@ constraint fee_category_id_pk primary key (fee_category_id),
 constraint fee_category_name_uq unique (fee_category_name)
 );
 
+```
+
+| fee_category_id | fee_category_name |
+|-----------------|-------------------|
+| 1               | admission         |
+| 2               | verification      |
+| 3               | tuition           |
+| 4               | sports            |
+| 5               | lab               |
+
+```
+
 create table course_fee 
 (
 course_fee_id number , 
