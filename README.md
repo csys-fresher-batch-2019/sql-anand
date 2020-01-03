@@ -125,12 +125,12 @@ constraint stud_active_ck check (stud_active in(1,0))
 
 | stud_id | stud_name | course_id | stud_active |
 |---------|-----------|-----------|-------------|
-| 17MCA01 | ABILASH   | 1         | 1           |
-| 17MCA02 | ABISHEK   | 2         | 1           |
-| 17MCA03 | ANAND     | 3         | 1           |
-| 17MCA04 | ARUN      | 4         | 1           |
-| 17MCA05 | BALA      | 1         | 1           |
-| 17MCA06 | BALAJI    | 2         | 1           |
+|       1 | ABILASH   | 1         | 1           |
+|       2 | ABISHEK   | 2         | 1           |
+|       3 | ANAND     | 3         | 1           |
+|       4 | ARUN      | 4         | 1           |
+|       5 | BALA      | 1         | 1           |
+|       6 | BALAJI    | 2         | 1           |
 
 
 ### Feature 3: ADD FEE CATEGORY AND ASSIGN FEE TO EACH CATEGORY
