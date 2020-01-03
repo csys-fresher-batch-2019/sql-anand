@@ -216,5 +216,8 @@ Various reports like Department wise, Department wise summary, Date wise, Date w
 
 #### Query : DATE WISE
 
+```
+
 select payment_id,payment_date,std_id,(select course_fee_name from course_fee c where c.course_fee_id=p.course_fee_id),paid_amount from payment p order by paid_date having sem_id=1;
 
+```
